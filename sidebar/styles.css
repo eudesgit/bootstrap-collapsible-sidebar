@@ -1,0 +1,182 @@
+/*
+ * Bootstrap Collapsible Sidebar
+ * 
+ * @uses Bootstrap 4.1
+ * @version 1.0.0
+ * @author Eudes
+ * @link https://github.com/eudesgit
+ * @license Apache 2.0
+ */
+  
+/* Sidebar Wrapper */
+#bootstrap-collapsible-sidebar-wrapper {
+    /* Colours */
+    --hue-black:        0;
+    --hue-white:        360;
+
+    --white:            hsl(var(--hue-white), 0%, 100%);
+    --black:            hsl(var(--hue-black), 0%, 0%);
+    --dark-grey:        hsl(var(--hue-black), 0%, 20%);
+    --darker-white:     hsl(var(--hue-black), 0%, 65%);
+    --darker-white2:    hsl(var(--hue-black), 0%, 85%);
+
+    --cl-sidebar-background:    var(--dark-grey);
+    --cl-separator-background:  var(--dark-grey);
+    --cl-item-text:             var(--darker-white2);
+    --cl-item-text-hover:       var(--white);
+    --cl-item-active-highlight: var(--white);
+    --cl-item-active-text:      var(--white);
+    --cl-item-active-icon:      var(--white);
+    --cl-icon:                  var(--darker-white);
+    --cl-icon-hover:            var(--white);
+    --cl-arrow:                 var(--darker-white);
+
+    /* Sizes */
+    --sz-sidebar-expanded: 230px;
+    --sz-sidebar-collapsed: 40px;
+
+    /* width: 230px;   DELETE */
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+  
+/* Nav */
+nav#bootstrap-collapsible-sidebar {
+    background-color: var(--cl-sidebar-background);
+    min-height: 100vh;
+}
+  
+/* Sidebar size when expanded */
+.bcs-expanded {
+    width: var(--sz-sidebar-expanded);
+}
+
+/* Sidebar size when collapsed */
+.bcs-collapsed {
+    width: var(--sz-sidebar-collapsed);
+}
+  
+/* Menu/Submenu  */
+.bcs-menu {
+    display: inline-block;
+    width: var(--sz-sidebar-expanded);
+    /* Sidebar width DELETE */
+    /* color: white; DELETE */
+}
+  
+/* Sub-menu */
+.bcs-sub-menu {
+    display: none;
+}
+
+/* Item */
+.bcs-menu .list-group-item {
+    border-left-width: 4px;
+}
+.bcs-menu .list-group a {
+    height: 50px;
+    color: var(--cl-item-text);
+}
+.bcs-menu .list-group a:hover {
+    color: var(--cl-item-text-hover);
+}
+
+/* Item icon */
+.bcs-menu .list-group a .material-icons {
+    color: var(--cl-icon);
+}
+.bcs-menu .list-group a:hover .material-icons {
+    color: var(--cl-icon-hover);
+}
+
+/* Item text */
+.bcs-item-text {
+    font-size: 0.9em;
+}
+
+/* Active Item */
+.bcs-menu .list-group-item.active {
+    border-color: rgba(0,0,0,.125);
+    border-left: 4px solid var(--cl-item-active-highlight);
+}
+.bcs-menu .list-group-item.active .bcs-item-text {
+    color: var(--cl-item-active-text);
+    font-weight: bold;
+}
+.bcs-menu .list-group-item.active .material-icons {
+    color: var(--cl-item-active-icon);
+}
+
+/* Second-level item */
+.bcs-menu .list-group .bcs-seclev-submenu a {
+    height: 40px;
+    padding-left: 30px;
+    font-size: 0.85em;
+    border-bottom: 0;
+    border-top: 0;
+}
+.bcs-menu .list-group .bcs-seclev-submenu a .bcs-item-text {
+    padding-left: 10px;
+    border-left: 2px solid transparent;
+}
+  
+/* Active Second-level item*/
+.bcs-menu .bcs-seclev-submenu a.active {
+    border-left: 4px solid transparent;
+}
+.bcs-menu .bcs-seclev-submenu a.active .bcs-item-text {
+    border-left: 2px solid var(--cl-item-active-highlight);
+    padding-left: 10px;
+}
+
+/* Separators */
+.bcs-separator {
+    background-color: var(--cl-separator-background);
+    height: 25px;
+}
+
+.bcs-separator-title {
+    background-color: var(--cl-separator-background);
+    height: 35px;
+}
+
+.bcs-separator-logo {
+    background-color: var(--cl-separator-background);
+    height: 60px;
+    border: 0;
+}
+
+/* Menu/Collapse button */
+.list-group-item[data-toggle="bcs-sidebar-collapse"] {
+    border: 0;
+    color: var(--cl-item-text);
+}
+
+/* Submenu arrow */
+.bcs-menu .list-group .list-group-item[data-open="bcs-submenu"] .submenu-icon::after {
+    content: "keyboard_arrow_right";
+    font-family: 'Material Icons';
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+    color: var(--cl-arrow);
+}
+  
+/* Closed Second-level submenu icon */
+.bcs-menu .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+    content: "keyboard_arrow_down";
+    font-family: 'Material Icons';
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+    color: var(--cl-arrow);
+}
+
+/* Opened Second-level submenu icon */
+.bcs-menu .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+    content: "keyboard_arrow_up";
+    font-family: 'Material Icons';
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+}
