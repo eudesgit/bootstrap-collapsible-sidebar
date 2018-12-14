@@ -1,0 +1,419 @@
+<html>
+
+<head>
+	<title>Bootstrap Collapsible Sidebar</title>
+	<meta charset="UTF-8" />
+
+    <!-- Bootstrap 4.1.3 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+    
+	<!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- Bootstrap Collapsible Sidebar Styles -->
+    <link rel="stylesheet" href="sidebar/styles.css">
+    
+    <!-- Example Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- Bootstrap Top Nav -->
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+	 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+	<a class="navbar-brand" href="#">
+		<span>Bootstrap Collapsible Sidebar</span>
+	</a>
+	<div class="collapse navbar-collapse" id="navbarNavDropdown">
+		<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Features</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Pricing</a>
+			</li>
+
+			<!-- This menu is hidden in bigger devices with d-sm-none. 
+           The sidebar isn't proper for smaller screens imo, so this dropdown menu can keep all the useful sidebar items exclusively for smaller screens  -->
+			<li class="nav-item dropdown d-sm-block d-md-none">
+				<a class="nav-link dropdown-toggle" href="#" id="smallerscreenmenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Menu
+				</a>
+				<div class="dropdown-menu" aria-labelledby="smallerscreenmenu">
+					<a class="dropdown-item" href="#">Your Sidebar Menu Goes Here</a>
+					<a class="dropdown-item" href="#">Profile</a>
+					<a class="dropdown-item" href="#">Tasks</a>
+					<a class="dropdown-item" href="#">Etc ...</a>
+				</div>
+			</li>
+			<!-- Smaller devices menu END -->
+
+		</ul>
+	</div>
+</nav><!-- /Bootstrap Top Nav -->
+
+
+<div id="body-wrapper" class="row">
+
+    <!-- ****** Bootstrap Collapsible Sidebar ***** -->
+	<div id="bootstrap-collapsible-sidebar-wrapper" class="bcs-expanded d-none d-md-block"><!-- d-none d-md-block: Not available on smaller screens-->
+		<nav id="bootstrap-collapsible-sidebar">
+
+			<!-- Main Menu -->
+			<div id="menu" class="bcs-menu bcs-expanded">
+				<div class="bcs-menu-container bcs-expanded">
+					<ul class="list-group"><!-- Bootstrap List Group -->
+
+                        <!-- Separator with title -->
+						<li class="bcs-separator-title list-group-item text-muted d-flex align-items-center">
+							<small>MAIN MENU</small>
+						</li><!-- /Separator with title -->
+
+
+						<!-- 2nd-level submenu -->
+						<a href="#submenu1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">dashboard</i>
+								<span class="bcs-item-text">Dashboard</span>
+								<span class="submenu-icon ml-auto"></span>
+							</div>
+						</a>
+						<!-- 2nd-level submenu content -->
+						<div id='submenu1' class="collapse bcs-seclev-submenu">
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Charts</span>
+							</a>
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Reports</span>
+							</a>
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Tables</span>
+							</a>
+                        </div><!-- /#submenu1 -->
+                        <!-- /2nd-level submenu -->
+
+
+						<!-- Simple item / Active Item example (.active) -->
+						<a href="#" class="active bg-dark list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-start align-items-center">
+                                <i class="material-icons mr-2">wifi</i>
+                                <span class="bcs-item-text">Active Item</span>
+                            </div>
+                        </a><!-- /Simple item / Active Item example (.active) -->
+
+
+                        <!-- 2nd-level submenu -->
+						<a href="#submenu2" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">account_circle</i>
+								<span class="bcs-item-text">Profile</span>
+								<span class="submenu-icon ml-auto"></span>
+							</div>
+						</a>
+						<!-- Submenu content -->
+						<div id='submenu2' class="collapse bcs-seclev-submenu">
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Settings</span>
+                            </a>
+                            <a href="#" class="active list-group-item list-group-item-action bg-dark text-white">
+                                <span class="bcs-item-text">Active item</span>
+                            </a>
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Password</span>
+							</a>
+						</div><!-- /2nd-level submenu -->
+
+
+						<!-- Item linking to submenu -->
+						<a href="#submenu-a" data-open="bcs-submenu" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">extension</i>
+								<span class="bcs-item-text">Apps</span>
+								<span class="submenu-icon ml-auto"></span>
+							</div>
+						</a><!-- /Item linking to submenu -->
+
+
+						<!-- Simple item -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">settings</i>
+								<span class="bcs-item-text">Settings</span>
+							</div>
+                        </a><!-- /Simple item -->
+                        
+
+						<!-- Separator with title -->
+						<li class="list-group-item bcs-separator-title text-muted d-flex align-items-center">
+							<small>OPTIONS</small>
+						</li><!-- /Separator with title -->
+
+
+						<!-- Item linking to submenu -->
+						<a href="#submenu-b" data-open="bcs-submenu" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">supervisor_account</i>
+								<span class="bcs-item-text">Accounts</span>
+								<span class="submenu-icon ml-auto"></span>
+							</div>
+                        </a><!-- /Item linking to submenu -->
+                        
+
+                        <!-- Simple item with notifications -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">email</i>
+								<span class="bcs-item-text">Messages <span class="badge badge-pill badge-primary ml-2">5</span></span>
+							</div>
+                        </a><!-- /Simple item with notifications -->
+                        
+
+						<!-- Separator without title -->
+                        <li class="list-group-item bcs-separator"></li>
+
+                        
+						<!-- Simple item -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">help</i>
+								<span class="bcs-item-text">Help</span>
+							</div>
+                        </a><!-- /Simple item -->
+                        
+
+						<!-- Separator without title -->
+                        <li class="list-group-item bcs-separator"></li>
+                        
+
+                        <!-- Collapse -->
+						<a href="#" data-toggle="bcs-sidebar-collapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2 bcs-collapse-icon">arrow_back_ios</i>
+								<span class="bcs-item-text">Collapse</span>
+							</div>
+                        </a><!-- /Collapse -->
+
+                        
+						<!-- Logo separator -->
+						<li class="list-group-item bcs-separator-logo d-flex justify-content-center">
+							<img src='https://v4-alpha.getbootstrap.com/assets/brand/bootstrap-solid.svg' width="30" height="30" />
+                        </li><!-- /Logo separator -->
+                        
+					</ul><!-- /Bootstrap List Group -->
+				</div><!-- /.bcs-menu-container -->
+	        </div><!-- /#menu Main Menu -->
+	
+
+
+			<!-- Submenu A -->
+			<div id="submenu-a" class="bcs-menu bcs-sub-menu">
+	      
+				<div class="bcs-menu-container bcs-expanded">
+					<ul class="list-group"><!-- Bootstrap List Group -->
+
+                        
+						<!-- Separator with title -->
+						<li class="bcs-separator-title list-group-item text-muted d-flex align-items-center">
+							<small>APPS</small>
+						</li><!-- /Separator with title -->
+
+
+						<!-- Simple item -->
+						<a href="#" class="ms-go-back bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">dashboard</i>
+								<span class="bcs-item-text">Main menu</span>
+							</div>
+                        </a><!-- /Simple item -->
+                        
+
+						<!-- Separator without title -->
+						<li class="list-group-item bcs-separator"></li>
+
+				
+						<!-- Simple item -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">mail</i>
+								<span class="bcs-item-text">Email</span>
+							</div>
+                        </a><!-- /Simple item -->
+                        
+				
+						<!-- Simple item -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">sms</i>
+								<span class="bcs-item-text">Messages</span>
+							</div>
+                        </a><!-- /Simple item -->
+                        
+				
+						<!-- Separator without title -->
+						<li class="list-group-item bcs-separator"></li>
+                        
+                        
+                        <!-- Simple item -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">help</i>
+								<span class="bcs-item-text">Help</span>
+							</div>
+                        </a><!-- /Simple item -->
+                        
+
+						<!-- Separator without title -->
+						<li class="list-group-item bcs-separator"></li>
+
+
+                        <!-- Collapse -->
+						<a href="#" data-toggle="bcs-sidebar-collapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2 bcs-collapse-icon">arrow_back_ios</i>
+								<span class="bcs-item-text">Collapse</span>
+							</div>
+						</a><!-- /Collapse -->
+						
+					</ul><!-- /Bootstrap List Group -->
+				</div><!-- /.bcs-menu-container -->
+	        </div><!-- /#submenu-a Sub Menu A -->
+    
+            
+
+			<!-- Submenu B -->
+			<div id="submenu-b" class="bcs-menu bcs-sub-menu">
+			
+				<div class="bcs-menu-container bcs-expanded">
+
+					<ul class="list-group"><!-- Bootstrap List Group -->
+            
+                        
+						<!-- Separator with title -->
+						<li class="bcs-separator-title list-group-item text-muted d-flex align-items-center">
+							<small>ACCOUNTS</small>
+                        </li><!-- /Separator with title -->
+                        
+			
+						<!-- Simple item -->
+						<a href="#" class="ms-go-back bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2">dashboard</i>
+								<span class="bcs-item-text">Main menu</span>
+							</div>
+                        </a><!-- /Simple item -->
+                        
+			
+						<!-- Separator without title -->
+						<li class="list-group-item bcs-separator"></li>
+						
+			
+						<!-- 2nd-level submenu without icon-->
+						<a href="#seclevel-a1" data-toggle="collapse" aria-expanded="false" class="bg-dark list-group-item list-group-item-action flex-column align-items-start">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<span class="bcs-item-text">Group work</span>
+								<span class="submenu-icon ml-auto"></span>
+							</div>
+						</a>
+						<!-- 2nd-level submenu content -->
+						<div id='seclevel-a1' class="collapse bcs-seclev-submenu">
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Charts</span>
+							</a>
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Reports</span>
+							</a>
+							<a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+								<span class="bcs-item-text">Tables</span>
+							</a>
+						</div><!-- /2nd-level submenu -->
+            
+                        
+						<!-- Simple item without icon -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<span class="bcs-item-text">Backup</span>
+							</div>
+						</a><!-- /Simple item -->
+            
+                        
+						<!-- Simple item without icon -->
+						<a href="#" class="bg-dark list-group-item list-group-item-action">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<span class="bcs-item-text">Security</span>
+							</div>
+						</a><!-- /Simple item -->
+            
+                        
+						<!-- Separator without title -->
+						<li class="list-group-item bcs-separator"></li>
+						                        
+						<a href="#" data-toggle="bcs-sidebar-collapse" class="bg-dark list-group-item list-group-item-action d-flex align-items-center">
+							<div class="d-flex w-100 justify-content-start align-items-center">
+								<i class="material-icons mr-2 bcs-collapse-icon">arrow_back_ios</i>
+								<span class="bcs-item-text">Collapse</span>
+							</div>
+						</a>
+						
+					</ul><!-- /Bootstrap List Group -->
+				</div><!-- /.bcs-menu-container -->
+			</div><!-- /#submenu-b Sub Menu B -->
+            	
+        </nav><!-- /#bootstrap-collapsible-sidebar -->
+	</div><!-- ****** /Bootstrap Collapsible Sidebar ***** -->
+
+	<main class="col">
+
+		<h1>
+			Bootstrap Collapsible Sidebar
+			<small class="text-muted">Version 1.0</small>
+		</h1>
+
+		<div class="card">
+			<h2 class="card-header">Requirements</h2>
+			<div class="card-body">
+				<ul>
+					<li>Bootstrap 4.1</li>
+					<li>JQuery 3.3</li>
+					<li>Material Icons</li>
+				</ul>
+			</div>
+        </div>
+        
+        <br />
+
+        <div class="card">
+            <h2 class="card-header">How does it work?</h2>
+            <div class="card-body">
+                <p>A collapsible sidebar with 2 levels of submenus, feature icons, titles and separators</p>
+                <p>You can have items, titles and separators on menus and submenus. Items can open submenus that roll 
+                    the menu to a submenu. Items can also open a second level submenu that just expands into second level
+                    items.
+                </p>
+                <p>This menu is not suitable to mobile devices. It's set to disapear on any small screen device.</p>
+            </div>
+        </div>
+
+	</main>
+	
+
+</div><!-- /.row -->
+</body>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- Popper - Required by Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<!-- Bootstrap -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- Bootstrap Collapsible Sidebar -->
+<script src="sidebar/scripts.js"></script>
+
+</html>
